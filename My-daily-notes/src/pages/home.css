@@ -1,0 +1,36 @@
+header{
+    display: flex;
+    background-color: #473630;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#logOut{
+    background-color: #473630;
+    color: #fff;
+    font-size: larger;
+}
+
+.navLinks{
+    color: #fff;
+    font-size: larger;
+}
+
+nav{
+    display: flex;
+    background-color: #473630;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#root{
+    display: flex;
+    flex-direction: column;
+    place-items: none;
+    place-content: space-between;
+    width: 100%;
+    background-color: #fcfcfc;
+}
+
+
