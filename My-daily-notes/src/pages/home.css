@@ -5,10 +5,45 @@ header{
     width: 100%;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #CFA28C;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #F4F1EF;
+}
+
+#greeting{
+    font-size: x-large;
+}
+
+input{
+    width: 350px;
+    height: 30px;
+    margin: 5px;
+    padding: 3px;
+    border: 1px solid #473630;
+    border-radius: 10px;
+    text-align: center;
+    font-size: larger;
+    letter-spacing: 0.08em;
+}
+
+label{
+    font-size: x-large;
+}
+
 #logOut{
     background-color: #473630;
     color: #fff;
     font-size: larger;
+}
+
+main{
+    width: 100%;
 }
 
 .navLinks{
@@ -28,9 +63,17 @@ nav{
     display: flex;
     flex-direction: column;
     place-items: none;
-    place-content: space-between;
+    place-content: flex-start;
     width: 100%;
     background-color: #fcfcfc;
 }
 
-
+textarea{
+    border: 1px solid #473630;
+    width: 346px;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    font-size: x-large;
+    letter-spacing: 0.07em;
+}
