@@ -6,7 +6,7 @@ import { auth, app } from '../config/firebase';
 const UserContext = createContext();
 
 export function UserProvider ({children}) {
-    const [user, setUser] = useState();
+    const [User, setUser] = useState();
 
     const signInGoogle = async () => {
         const gooogleProvider = new GoogleAuthProvider();
@@ -32,9 +32,10 @@ export function UserProvider ({children}) {
 
     const db = getFirestore(app);
 
-    const saveNotes = async ({...user}) => {
+    const saveNotes = async (userUid, {...user}) => {
       try {
-        return await addDoc(collection(db, 'notes'), {
+        console.log(userUid);
+        return await addDoc(collection(db, `notesFrom${userUid}`), {
           ...user
         });
       } catch (error) {
@@ -45,7 +46,7 @@ export function UserProvider ({children}) {
 
 
     return (
-        <UserContext.Provider value={{user, setUser, logOut, signInGoogle, saveNotes}}>
+        <UserContext.Provider value={{User, setUser, logOut, signInGoogle, saveNotes}}>
             {children}
         </UserContext.Provider>
     );

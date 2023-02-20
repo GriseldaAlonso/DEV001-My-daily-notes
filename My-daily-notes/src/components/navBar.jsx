@@ -3,7 +3,7 @@ import { useUserContext } from '../context/userContext';
 import { useNavigate } from 'react-router-dom';
 
 export const NavBar = () => {
-    const {user, setUser, logOut} = useUserContext();
+    const {User, setUser, logOut} = useUserContext();
     const navigate = useNavigate();
 
     const handleLogout = async () => {
@@ -14,7 +14,7 @@ export const NavBar = () => {
 
     return (
         <nav>
-            {user && (
+            {User && (
                 <>
                     <NavLink className="navLinks" to="/notes/labels">Dashboard</NavLink>
                     <NavLink className="navLinks" to="/notes">My Daily Notes</NavLink>

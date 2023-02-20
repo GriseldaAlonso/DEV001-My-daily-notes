@@ -3,8 +3,8 @@ import { useUserContext } from '../context/userContext'
 
 export function FormForNotes () {
 
-  const {saveNotes} = useUserContext();
-  
+  const {User, saveNotes} = useUserContext();
+
   /*----------  Constantes necesarias para almacenar fecha y hora en que se creo la nota ----------*/
   const ts = new Date();
   const currentDate = ts.toLocaleString();
@@ -16,7 +16,6 @@ export function FormForNotes () {
   };
 
   const [user, setUser] = useState(initialValue);
-
   const dataCapture = (e) => {
     const {name, value} = e.target;
     setUser({...user, [name]:value, ts: currentDate})
@@ -28,7 +27,8 @@ export function FormForNotes () {
   */
   const saveData = (e) => {
     e.preventDefault();
-    saveNotes({...user});
+    const userUid = User.uid;
+    saveNotes(userUid, {...user});
     setUser({...initialValue})
   }
 
