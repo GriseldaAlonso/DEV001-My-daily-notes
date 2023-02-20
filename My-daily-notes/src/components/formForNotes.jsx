@@ -4,6 +4,8 @@ import { useUserContext } from '../context/userContext'
 export function FormForNotes () {
 
   const {saveNotes} = useUserContext();
+  
+  /*----------  Constantes necesarias para almacenar fecha y hora en que se creo la nota ----------*/
   const ts = new Date();
   const currentDate = ts.toLocaleString();
 
