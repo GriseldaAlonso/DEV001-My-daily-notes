@@ -10,7 +10,7 @@ const LayoutPrivate = () => {
         if (!setUser) {
             navigate('/');
         } else {
-            navigate('/home');
+            navigate('/notes');
         }
     }, [setUser]);
 
