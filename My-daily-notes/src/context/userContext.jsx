@@ -6,14 +6,18 @@ import { auth, app } from '../config/firebase';
 const UserContext = createContext();
 
 export function UserProvider ({children}) {
+  /*----------  variable de estado ----------*/
     const [User, setUser] = useState();
 
+    /*----------  Función que permite autenticar al usuario con google a traves de firebase ----------*/
     const signInGoogle = async () => {
         const gooogleProvider = new GoogleAuthProvider();
           return await signInWithPopup(auth, gooogleProvider);
           
       };
 
+
+    /*----------  Función que cierra la sesión del usuario ----------*/
     const logOut = async () => {
         try {
           await signOut(auth);
@@ -23,6 +27,8 @@ export function UserProvider ({children}) {
         }
       } 
     
+
+    /*----------  Función que observa el estado del usuario ----------*/
     useEffect(() => {
         onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
@@ -30,11 +36,13 @@ export function UserProvider ({children}) {
         });
     }, []);
 
+
+    /*----------  Funciones y variables relacionadas con firestore ----------*/
     const db = getFirestore(app);
 
+    // Función que guarda las notas en firestore
     const saveNotes = async (userUid, {...user}) => {
       try {
-        console.log(userUid);
         return await addDoc(collection(db, `notesFrom${userUid}`), {
           ...user
         });

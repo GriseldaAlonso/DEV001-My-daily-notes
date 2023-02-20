@@ -6,8 +6,13 @@ import googleIcon from "../assets/googleIcon.svg";
 import "./logIn.css";
 
 export default function Login () {
+  // VAriable de contexto
   const { signInGoogle } = useUserContext();
+ 
+  // Variable para la nevagación entre rutas
   const navigate = useNavigate();
+  
+  // Función que maneja el evento click del boton de inicio de sesión
   const handleGoogleLogin = async () => {
     await signInGoogle();
     navigate('/notes');

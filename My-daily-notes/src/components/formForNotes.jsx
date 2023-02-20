@@ -9,13 +9,17 @@ export function FormForNotes () {
   const ts = new Date();
   const currentDate = ts.toLocaleString();
 
+  /*----------  Valores Iniciales ----------*/
   const initialValue = {
     title: '',
     text: '',
     ts: '',
   };
 
+   /*----------  Variable de estado ----------*/
   const [user, setUser] = useState(initialValue);
+  
+   /*----------  Función que captura contenido del input y textArea ----------*/
   const dataCapture = (e) => {
     const {name, value} = e.target;
     setUser({...user, [name]:value, ts: currentDate})
