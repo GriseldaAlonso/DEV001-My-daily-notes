@@ -8,7 +8,7 @@ const NotFound = () => {
       <h1>404</h1>
       <p>Page not found</p>
       <p>{error.statusText || error.message}</p>
-      <Link to="/home">Return to Home</Link>
+      <Link to="/notes">Return to Home</Link>
     </div>
   );
 };

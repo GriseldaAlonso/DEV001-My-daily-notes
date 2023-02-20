@@ -13,12 +13,12 @@ export const NavBar = () => {
 
 
     return (
-        <nav class>
+        <nav>
             {user && (
                 <>
-                    <NavLink to="/home">Home</NavLink>
-                    <NavLink to="/home/dashboard">Dashboard</NavLink>
-                    <button onClick={handleLogout}>Logout</button>
+                    <NavLink className="navLinks" to="/notes/labels">Dashboard</NavLink>
+                    <NavLink className="navLinks" to="/notes">My Daily Notes</NavLink>
+                    <button id='logOut' onClick={handleLogout}>Logout</button>
                 </>
             )}
         </nav>

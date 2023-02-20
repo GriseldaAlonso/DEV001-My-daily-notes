@@ -6,11 +6,11 @@ import googleIcon from "../assets/googleIcon.svg";
 import "./logIn.css";
 
 export default function Login () {
-  const { user, signInGoogle } = useUserContext();
+  const { signInGoogle } = useUserContext();
   const navigate = useNavigate();
   const handleGoogleLogin = async () => {
     await signInGoogle();
-    navigate('/home');
+    navigate('/notes');
   };
 
   return (
