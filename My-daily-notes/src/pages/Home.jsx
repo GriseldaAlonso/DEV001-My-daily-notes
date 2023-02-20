@@ -3,9 +3,9 @@ import { useUserContext } from '../context/userContext'
 import { FormForNotes } from '../components/formForNotes';
 
 export default function Home () {
-  const { user } = useUserContext();
+  const { User } = useUserContext();
 
-  const nameUser = user.displayName;
+  const nameUser = User.displayName;
 
   return (
     <>
