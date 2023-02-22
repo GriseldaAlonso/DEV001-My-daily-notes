@@ -3,9 +3,8 @@
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #fcfcfc;
+    background-color: #FAF8F7;
     font-family: 'Poppins', sans-serif;
-    border: 2px solid blueviolet;
     place-items: center;
     place-content: center;
 }
@@ -14,7 +13,6 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid yellowgreen;
 }
 .logo{
     width: 350px;
@@ -53,7 +51,6 @@ main{
 }
 @media only screen and (min-width: 600px) {
     #root{
-        border: 2px solid palevioletred;
         place-items: center;
         place-content: center;
     }
@@ -63,7 +60,6 @@ main{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 2px solid purple;
     }
     .logo{
         width: 350px;
@@ -105,6 +101,17 @@ main{
 @media only screen and (min-width: 1181px) {
     #root{
         width: 100%;
-        border: 2px solid green;
+        height: 100%;
+    }
+    .logo{
+        width: 304px;
+        height: 338px;
+    }
+    .welcome{
+        font-size: 2.5em;
+    }
+    
+    .mainTitle{
+        font-size: 3em;
     }
 }

@@ -5,6 +5,13 @@ header{
     width: 100%;
 }
 
+#mainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 form{
     display: flex;
     flex-direction: column;
@@ -14,6 +21,7 @@ form{
     padding: 10px;
     border-radius: 15px;
     background-color: #F4F1EF;
+    width: 400px;
 }
 
 #greeting{
@@ -34,6 +42,16 @@ input{
 
 label{
     font-size: x-large;
+}
+
+li{
+    list-style: none;
+    border: 1.5px solid #473630;
+    padding: 1em;
+    margin: 10px;
+    width: 300px;
+    height: fit-content;
+    border-radius: 20px;
 }
 
 #logOut{
@@ -65,7 +83,7 @@ nav{
     place-items: none;
     place-content: flex-start;
     width: 100%;
-    background-color: #fcfcfc;
+    background-color: #FAF8F7;
 }
 
 textarea{
@@ -76,4 +94,18 @@ textarea{
     text-align: center;
     font-size: x-large;
     letter-spacing: 0.07em;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: center;
+}
+
+.btnNote{
+    background-color: rosybrown;
+    color: #fff;
+    font-weight: 400;
+    font-size: larger;
 }
