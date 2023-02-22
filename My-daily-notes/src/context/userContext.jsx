@@ -1,12 +1,12 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth';
-import { getFirestore, collection, addDoc } from 'firebase/firestore'; /**'getDocs' para petición por get, 'doc' para hacer una sola petición, 'deleteDoc' para eliminar el documento, 'getDoc' petición a un solo documento, 'setDoc' para solicitar la actualización */
+import { getFirestore, collection, addDoc } from 'firebase/firestore'; /**'deleteDoc' para eliminar el documento, 'getDoc' petición a un solo documento, 'setDoc' para solicitar la actualización */
 import { auth, app } from '../config/firebase';
 
 const UserContext = createContext();
 
 export function UserProvider ({children}) {
-  /*----------  variable de estado ----------*/
+  /*----------  variables de estado ----------*/
     const [User, setUser] = useState();
 
     /*----------  Función que permite autenticar al usuario con google a traves de firebase ----------*/
@@ -50,11 +50,10 @@ export function UserProvider ({children}) {
         const errorMessage = error.message;
         return errorMessage; 
       }
-    }
-
+    };
 
     return (
-        <UserContext.Provider value={{User, setUser, logOut, signInGoogle, saveNotes}}>
+        <UserContext.Provider value={{User, setUser, logOut, signInGoogle, saveNotes, db}}>
             {children}
         </UserContext.Provider>
     );
