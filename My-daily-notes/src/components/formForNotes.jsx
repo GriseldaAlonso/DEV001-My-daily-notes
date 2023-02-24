@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useUserContext } from "../context/userContext";
 
-export function FormForNotes() {
+export function FormForNotes({ userUid, title = "Add new note", children }) {
   /*----------  Variables de contexto ----------*/
-  const { User, saveNotes } = useUserContext();
+  const { saveNotes } = useUserContext();
 
-  /*----------  Constantes necesarias para almacenar fecha y hora en que se creo la nota ----------*/
+  /*----------  Constantes necesarias para almacenar fecha y hora en que se creó la nota ----------*/
   const ts = new Date();
   const currentDate = ts.toLocaleString();
 
@@ -31,7 +31,6 @@ export function FormForNotes() {
   */
   const saveData = (e) => {
     e.preventDefault();
-    const userUid = User.uid;
     saveNotes(userUid, { ...user });
     setUser({ ...initialValue });
   };
@@ -39,7 +38,7 @@ export function FormForNotes() {
   return (
     <>
       <form onSubmit={saveData}>
-        <label htmlFor="title">Add new note</label>
+        <label htmlFor="title">{title}</label>
         <input
           type="text"
           name="title"
@@ -59,7 +58,14 @@ export function FormForNotes() {
           onChange={dataCapture}
           value={user.text}
         />
-        <button className="btn">Save</button>
+        {children ? (
+          <div className="btnsModal">
+            {children}
+            <button className="btn">Save</button>
+          </div>
+        ) : (
+          <button className="btn">Save</button>
+        )}
       </form>
     </>
   );
