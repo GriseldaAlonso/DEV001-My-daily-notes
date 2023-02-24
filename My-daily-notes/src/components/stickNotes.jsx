@@ -15,7 +15,7 @@ export default function ShowNotes() {
   const [list, setList] = useState([]);
   const [modalDelete, setModalDelete] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
-  const [subId, SetSubId] = useState("");
+  const [subId, setSubId] = useState("");
 
   /*----------  Función para obtener las notas ----------*/
   const getNotes = async () => {
@@ -31,8 +31,6 @@ export default function ShowNotes() {
     getNotes();
   }, [list]);
 
-  /*----------  Función para obtener la nota a editar ----------*/
-
   return (
     <ul className="dashboard">
       {list.length !== 0 ? (
@@ -42,9 +40,20 @@ export default function ShowNotes() {
               <h2 className="title">{el.title}</h2>
               <p className="bodyNote">{el.text}</p>
               <p className="ts">{el.ts}</p>
-              <div>
-                <button onClick={() => setModalEdit(!modalEdit)}>Edit</button>
-                <button onClick={() => setModalDelete(!modalDelete)}>
+              <div className="btns">
+                <button
+                  className="btnNote"
+                  onClick={() => {
+                    setSubId(el.id);
+                    setModalEdit(!modalEdit);
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  className="btnNote"
+                  onClick={() => setModalDelete(!modalDelete)}
+                >
                   Delete
                 </button>
               </div>
@@ -59,7 +68,12 @@ export default function ShowNotes() {
               <div className="content">
                 <p>Are you sure to delete this note?</p>
                 <div className="btns">
-                  <button onClick={() => setModalDelete(false)}>Cancel</button>
+                  <button
+                    className="btnCancel"
+                    onClick={() => setModalDelete(false)}
+                  >
+                    Cancel
+                  </button>
                   <DeleteNote
                     idLi={el.id}
                     state={modalDelete}
@@ -70,13 +84,19 @@ export default function ShowNotes() {
               </div>
             </Modal>
             {/*Modal para editar la nota*/}
-            <Modal
-              state={modalEdit}
-              setState={setModalEdit}
-              title=""
-            >
-              <FormForNotes title="Edit Note">
-                <button>Cancel</button>
+            <Modal state={modalEdit} setState={setModalEdit} title="">
+              <FormForNotes
+                title="Edit Note"
+                subId={subId}
+                setId={setSubId}
+                setState={setModalEdit}
+              >
+                <button
+                  className="btnCancel"
+                  onClick={() => setModalEdit(false)}
+                >
+                  Cancel
+                </button>
               </FormForNotes>
             </Modal>
           </div>

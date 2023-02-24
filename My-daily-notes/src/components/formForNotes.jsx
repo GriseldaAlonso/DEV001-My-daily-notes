@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
 import { useUserContext } from "../context/userContext";
 
-export function FormForNotes({ userUid, title = "Add new note", children }) {
+export function FormForNotes({
+  title = "Add new note",
+  children,
+  subId,
+  setState,
+}) {
   /*----------  Variables de contexto ----------*/
-  const { saveNotes } = useUserContext();
+  const { User, saveNotes, db, upDateNote } = useUserContext();
+  const userUid = User.uid;
 
   /*----------  Constantes necesarias para almacenar fecha y hora en que se creó la nota ----------*/
   const ts = new Date();
@@ -35,6 +42,24 @@ export function FormForNotes({ userUid, title = "Add new note", children }) {
     setUser({ ...initialValue });
   };
 
+  /*----------  Función para obtener el contenido de una sola nota ----------*/
+  const getOneNote = async (uid, id) => {
+    try {
+      const docRef = doc(db, `notesFrom${uid}`, id);
+      const docSnap = await getDoc(docRef);
+      setUser(docSnap.data());
+    } catch (error) {
+      const errorMessage = error.message;
+      return errorMessage;
+    }
+  };
+
+  useEffect(() => {
+    if (subId !== "") {
+      getOneNote(userUid, subId);
+    }
+  }, [subId]);
+
   return (
     <>
       <form onSubmit={saveData}>
@@ -59,9 +84,17 @@ export function FormForNotes({ userUid, title = "Add new note", children }) {
           value={user.text}
         />
         {children ? (
-          <div className="btnsModal">
+          <div className="btns">
             {children}
-            <button className="btn">Save</button>
+            <button
+              className="btnNote"
+              onClick={() => {
+                upDateNote(userUid, subId, { ...user });
+                setState(false);
+              }}
+            >
+              Update
+            </button>
           </div>
         ) : (
           <button className="btn">Save</button>
