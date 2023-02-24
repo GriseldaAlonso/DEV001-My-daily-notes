@@ -9,8 +9,8 @@ import {
   getFirestore,
   collection,
   addDoc,
-  getDoc,
-  doc
+  setDoc,
+  doc,
 } from "firebase/firestore";
 import { auth, app } from "../config/firebase";
 
@@ -59,21 +59,16 @@ export function UserProvider({ children }) {
     }
   };
 
-  /*----------  Función para obtener el contenido de una sola nota ----------*/
-  const getOneNote = async (userUid, id) => {
-    try {
-      const docRef = doc(db, `notesFrom${userUid}`, id);
-      const docSnap = await getDoc(docRef);
-      return docSnap.data();
-    } catch (error) {
-      const errorMessage = error.message;
-      return errorMessage;
-    }
+  // Funcíon que actualiza la nota
+  const upDateNote = async (uid, id, { ...user }) => {
+    await setDoc(doc(db, `notesFrom${uid}`, id), {
+      ...user,
+    });
   };
 
   return (
     <UserContext.Provider
-      value={{ User, setUser, logOut, signInGoogle, saveNotes, db, getOneNote}}
+      value={{ User, setUser, logOut, signInGoogle, saveNotes, db, upDateNote }}
     >
       {children}
     </UserContext.Provider>
