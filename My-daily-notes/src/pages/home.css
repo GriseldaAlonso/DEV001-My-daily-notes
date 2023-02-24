@@ -1,7 +1,42 @@
+/*Estilos contenedor raiz*/
+#root{
+    display: flex;
+    flex-direction: column;
+    place-items: none;
+    place-content: flex-start;
+    width: 100%;
+    background-color: #FAF8F7;
+}
+
+/*Estilos para encabezado de pagina*/
 header{
     display: flex;
     background-color: #473630;
     justify-content: space-between;
+    width: 100%;
+}
+
+nav{
+    display: flex;
+    background-color: #473630;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navLinks{
+    color: #fff;
+    font-size: larger;
+}
+
+#logOut{
+    background-color: #473630;
+    color: #fff;
+    font-size: larger;
+}
+
+/*Contenedor de form y sección de notas*/
+main{
     width: 100%;
 }
 
@@ -12,6 +47,11 @@ header{
     align-items: center;
 }
 
+#greeting{
+    font-size: x-large;
+}
+
+/*Estilos para formulario*/
 form{
     display: flex;
     flex-direction: column;
@@ -24,10 +64,9 @@ form{
     width: 400px;
 }
 
-#greeting{
+label{
     font-size: x-large;
 }
-
 input{
     width: 350px;
     height: 30px;
@@ -40,8 +79,22 @@ input{
     letter-spacing: 0.08em;
 }
 
-label{
+textarea{
+    border: 1px solid #473630;
+    width: 346px;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
     font-size: x-large;
+    letter-spacing: 0.07em;
+}
+
+/*Estilos para sección de notas*/
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: center;
 }
 
 li{
@@ -54,53 +107,9 @@ li{
     border-radius: 20px;
 }
 
-#logOut{
-    background-color: #473630;
-    color: #fff;
-    font-size: larger;
-}
-
-main{
-    width: 100%;
-}
-
-.navLinks{
-    color: #fff;
-    font-size: larger;
-}
-
-nav{
-    display: flex;
-    background-color: #473630;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#root{
-    display: flex;
-    flex-direction: column;
-    place-items: none;
-    place-content: flex-start;
-    width: 100%;
-    background-color: #FAF8F7;
-}
-
-textarea{
-    border: 1px solid #473630;
-    width: 346px;
-    border-radius: 10px;
-    padding: 5px;
-    text-align: center;
-    font-size: x-large;
-    letter-spacing: 0.07em;
-}
-
-ul{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    justify-content: center;
+.title{
+    font-weight: 500;
+    color: #473630;
 }
 
 .btnNote{
@@ -108,4 +117,83 @@ ul{
     color: #fff;
     font-weight: 400;
     font-size: larger;
+}
+
+/* Estilos para modal */
+
+.overlay{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalContainer{
+    width: 300px;
+    min-height: 100px;
+    background-color: #FAF8F7;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 20px;
+}
+
+.modalHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #A5A59A;
+}
+
+.titleModal{
+    font-weight: 500;
+    color: #473630;
+    margin: 0;
+}
+
+.btnClose{
+    position: absolute;
+    top: 17px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    color:#473630;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnClose:hover{
+    background-color: #A5A59A;
+}
+
+.hide{
+    display: none;
+    border: none;
+}
+
+@media only screen and (min-width: 600px) {
+    /* Estilos para modal */
+    .modalContainer{
+        width: 430px;
+        min-height: 100px;
+    }
+}
+
+@media only screen and (min-width: 1181px) {
+    /* Estilos para modal */
+    .modalContainer{
+        width: 500px;
+        min-height: 150px;
+    }
 }

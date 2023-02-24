@@ -23,10 +23,9 @@ export default function Login() {
       <h1 className="welcome">Welcome to</h1>
       <img className="logo" src={blockLogo} alt="block of paper for notes" />
       <h1 className="mainTitle">My Daily Notes</h1>
-      <button className="btn">
+      <button className="btn" onClick={handleGoogleLogin}>
         Signin with
         <img
-          onClick={handleGoogleLogin}
           className="googleIcon"
           src={googleIcon}
           alt="google logo"
