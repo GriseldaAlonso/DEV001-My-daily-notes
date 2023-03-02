@@ -1,6 +1,5 @@
 import "./home.css";
 import { useUserContext } from "../context/userContext";
-import { FormForNotes } from "../components/formForNotes";
 import ShowNotes from "../components/stickNotes";
 
 export default function Home() {
@@ -18,13 +17,12 @@ export default function Home() {
     <>
       {User !== null ? (
         <>
-          <p id="greeting">Hello, {nameUser}</p>
-          <div id="mainContainer">
-            <FormForNotes userUid={userUid}/>
-            <div id="notesContainer">
-              <h1>Notes</h1>
-              <ShowNotes userUid={userUid}/>
-            </div>
+          <div id="firstLevel">
+            <p id="greeting">Hello, {nameUser}</p>
+            <h1 id="mainTitle">Notes</h1>
+          </div>
+          <div id="notesContainer">
+            <ShowNotes userUid={userUid} />
           </div>
         </>
       ) : (

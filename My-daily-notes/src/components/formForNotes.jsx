@@ -7,9 +7,10 @@ export function FormForNotes({
   children,
   subId,
   setState,
+  getNotes
 }) {
   /*----------  Variables de contexto ----------*/
-  const { User, saveNotes, db, upDateNote } = useUserContext();
+  const { User, saveNotes, db, upDateNote} = useUserContext();
   const userUid = User.uid;
 
   /*----------  Constantes necesarias para almacenar fecha y hora en que se creó la nota ----------*/
@@ -39,7 +40,9 @@ export function FormForNotes({
   const saveData = (e) => {
     e.preventDefault();
     saveNotes(userUid, { ...user });
+    getNotes();
     setUser({ ...initialValue });
+    setState(false)
   };
 
   /*----------  Función para obtener el contenido de una sola nota ----------*/
@@ -90,6 +93,7 @@ export function FormForNotes({
               className="btnNote"
               onClick={() => {
                 upDateNote(userUid, subId, { ...user });
+                getNotes();
                 setState(false);
               }}
             >
