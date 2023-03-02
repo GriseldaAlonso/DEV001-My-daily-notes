@@ -13,6 +13,7 @@ export default function ShowNotes() {
 
   /*----------  Variables de estado ----------*/
   const [list, setList] = useState([]);
+  const [modalAdd, setModalAdd] = useState(false);
   const [modalDelete, setModalDelete] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
   const [subId, setSubId] = useState("");
@@ -29,13 +30,22 @@ export default function ShowNotes() {
 
   useEffect(() => {
     getNotes();
-  }, [list]);
+  }, []);
 
   return (
-    <ul className="dashboard">
-      {list.length !== 0 ? (
-        list.map((el) => (
-          <div key={`div${el.id}`}>
+    <>
+      <ul className="dashboard">
+        <div className="btnModalAdd">
+          <p>Add new note</p>
+          <button id="btnAdd" onClick={() => setModalAdd(!modalAdd)}>
+            +
+          </button>
+        </div>
+        <Modal state={modalAdd} setState={setModalAdd} title="">
+          <FormForNotes setState={setModalAdd} getNotes={getNotes} />
+        </Modal>
+        {list.length !== 0 ? (
+          list.map((el) => (
             <li key={`li${el.id}`} id={el.id}>
               <h2 className="title">{el.title}</h2>
               <p className="bodyNote">{el.text}</p>
@@ -57,53 +67,54 @@ export default function ShowNotes() {
                   Delete
                 </button>
               </div>
-            </li>
-
-            {/*Modal para editar la nota*/}
-            <Modal
-              state={modalDelete}
-              setState={setModalDelete}
-              title="Delete Note"
-            >
-              <div className="content">
-                <p>Are you sure to delete this note?</p>
-                <div className="btns">
+              {/*Modal para editar la nota*/}
+              <Modal
+                state={modalDelete}
+                setState={setModalDelete}
+                title="Delete Note"
+              >
+                <div className="content">
+                  <p>Are you sure to delete this note?</p>
+                  <div className="btns">
+                    <button
+                      className="btnCancel"
+                      onClick={() => setModalDelete(false)}
+                    >
+                      Cancel
+                    </button>
+                    <DeleteNote
+                      idLi={el.id}
+                      state={modalDelete}
+                      setState={setModalDelete}
+                      userUid={userUid}
+                      getNotes={getNotes}
+                    />
+                  </div>
+                </div>
+              </Modal>
+              {/*Modal para editar la nota*/}
+              <Modal state={modalEdit} setState={setModalEdit} title="">
+                <FormForNotes
+                  title="Edit Note"
+                  subId={subId}
+                  setId={setSubId}
+                  setState={setModalEdit}
+                  getNotes={getNotes}
+                >
                   <button
                     className="btnCancel"
-                    onClick={() => setModalDelete(false)}
+                    onClick={() => setModalEdit(false)}
                   >
                     Cancel
                   </button>
-                  <DeleteNote
-                    idLi={el.id}
-                    state={modalDelete}
-                    setState={setModalDelete}
-                    userUid={userUid}
-                  />
-                </div>
-              </div>
-            </Modal>
-            {/*Modal para editar la nota*/}
-            <Modal state={modalEdit} setState={setModalEdit} title="">
-              <FormForNotes
-                title="Edit Note"
-                subId={subId}
-                setId={setSubId}
-                setState={setModalEdit}
-              >
-                <button
-                  className="btnCancel"
-                  onClick={() => setModalEdit(false)}
-                >
-                  Cancel
-                </button>
-              </FormForNotes>
-            </Modal>
-          </div>
-        ))
-      ) : (
-        <p>Notes you add will appear here</p>
-      )}
-    </ul>
+                </FormForNotes>
+              </Modal>
+            </li>
+          ))
+        ) : (
+          <p>Notes you add will appear here</p>
+        )}
+      </ul>
+    </>
   );
 }

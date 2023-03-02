@@ -40,15 +40,45 @@ main{
     width: 100%;
 }
 
-#mainContainer{
-    display: flex;
-    flex-direction: column;
+#firstLevel{
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
     justify-content: center;
-    align-items: center;
 }
 
 #greeting{
     font-size: x-large;
+}
+
+h1{
+    width: fit-content;
+}
+
+#notesContainer{
+    width: 100%;
+}
+
+.btnModalAdd{
+    display: inline-flex;
+    border: 2px solid #473630;
+    border-radius: 20px;
+    padding: 0.1em 1em;
+    justify-content: space-between;
+    align-items: center;
+    width: 170px;
+    height: fit-content;
+}
+
+#btnAdd{
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: #473630;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*Estilos para formulario*/
@@ -61,14 +91,14 @@ form{
     padding: 10px;
     border-radius: 15px;
     background-color: #F4F1EF;
-    width: 250px;
+    width: 90%;
 }
 
 label{
     font-size: x-large;
 }
 input{
-    width: 350px;
+    width: 90%;
     height: 30px;
     margin: 5px;
     padding: 3px;
@@ -81,7 +111,7 @@ input{
 
 textarea{
     border: 1px solid #473630;
-    width: 346px;
+    width: 90%;
     border-radius: 10px;
     padding: 5px;
     text-align: center;
@@ -95,6 +125,7 @@ ul{
     flex-wrap: wrap;
     padding: 0;
     justify-content: center;
+    border: 2px solid royalblue;
 }
 
 li{
@@ -216,6 +247,28 @@ li{
     border: none;
 }
 
+@media only screen and (min-width: 417px) {
+    #firstLevel{
+        flex-direction: column;
+    }
+    #greeting{
+        font-size: x-large;
+        width: fit-content;
+        align-self: flex-start;
+    }
+    
+    h1{
+        align-self: center;
+    }
+    form{
+        width: 400px;
+    }
+    /* Estilos para modal */
+    .modalContainer{
+        width: 430px;
+        min-height: 100px;
+    }
+}
 
 
 @media only screen and (min-width: 600px) {

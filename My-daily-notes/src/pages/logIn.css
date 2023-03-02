@@ -42,8 +42,8 @@ main{
     height: 45px;
     border-radius: 20px;
     margin: 10px;
-    background-color: #8D6C5F;
-    color: #ffffff;
+    background-color: #473630;
+    color: #fff;
     justify-content: center;
     align-items: center;
     font-size: larger;
@@ -89,7 +89,7 @@ main{
         height: 50px;
         border-radius: 20px;
         margin: 10px;
-        background-color: #8D6C5F;
+        background-color: #473630;
         color: #ffffff;
         justify-content: center;
         align-items: center;
