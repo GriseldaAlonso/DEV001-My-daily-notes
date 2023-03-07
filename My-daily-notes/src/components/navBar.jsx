@@ -20,14 +20,11 @@ export const NavBar = () => {
       {/*Condicional que evalúa el estado de usuario para mostrar componentes en rutas protegidas */}
       {User && (
         <>
-          <NavLink className="navLinks" to="/notes/labels">
-            Labels
-          </NavLink>
           <NavLink className="navLinks" to="/notes">
             My Daily Notes
           </NavLink>
           <button id="logOut" onClick={handleLogout}>
-            Logout
+            Log Out
           </button>
         </>
       )}

@@ -1,13 +1,20 @@
-import { deleteDoc, doc } from 'firebase/firestore'
-import { db } from '../config/firebase'
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../config/firebase.js";
 
-export function DeleteNote ({idLi, userUid, state, setState, getNotes}) {
-    const handleBtnDelete = async () => {
-        await deleteDoc(doc(db, `notesFrom${userUid}`, idLi));
-        getNotes();
-        setState(false);
-    };
-    return (
-        <button id={`btnDelete${idLi}`} onClick={handleBtnDelete} className='btnNote'>Delete</button>
-    )
+export function DeleteNote({ subId, userUid, setState, getNotes }) {
+  const handleBtnDelete = async () => {
+    console.log(subId)
+    await deleteDoc(doc(db, `notesFrom${userUid}`, subId));
+    getNotes();
+    setState(false);
+  };
+  return (
+    <button
+      id={`btnDelete${subId}`}
+      onClick={handleBtnDelete}
+      className="btnAction"
+    >
+      Delete
+    </button>
+  );
 }

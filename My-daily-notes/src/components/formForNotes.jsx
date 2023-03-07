@@ -22,6 +22,7 @@ export function FormForNotes({
     title: "",
     text: "",
     ts: "",
+    tag: ""
   };
 
   /*----------  Variable de estado ----------*/
@@ -30,7 +31,7 @@ export function FormForNotes({
   /*----------  Función que captura contenido del input y textArea ----------*/
   const dataCapture = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value, ts: currentDate });
+    setUser({ ...user, [name]: value, ts: currentDate, tag: "" });
   };
 
   /**
@@ -90,7 +91,7 @@ export function FormForNotes({
           <div className="btns">
             {children}
             <button
-              className="btnNote"
+              className="btnAction"
               onClick={() => {
                 upDateNote(userUid, subId, { ...user });
                 getNotes();

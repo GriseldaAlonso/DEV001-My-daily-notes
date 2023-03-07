@@ -12,7 +12,7 @@ import {
   setDoc,
   doc,
 } from "firebase/firestore";
-import { auth, app } from "../config/firebase";
+import { auth, app } from "../config/firebase.js";
 
 const UserContext = createContext();
 

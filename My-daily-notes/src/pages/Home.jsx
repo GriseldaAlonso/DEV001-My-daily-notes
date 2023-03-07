@@ -16,15 +16,9 @@ export default function Home() {
   return (
     <>
       {User !== null ? (
-        <>
-          <div id="firstLevel">
-            <p id="greeting">Hello, {nameUser}</p>
-            <h1 id="mainTitle">Notes</h1>
-          </div>
           <div id="notesContainer">
-            <ShowNotes userUid={userUid} />
+            <ShowNotes userUid={userUid} nameUser={nameUser} />
           </div>
-        </>
       ) : (
         <p id="greeting">{nameUser}</p>
       )}
