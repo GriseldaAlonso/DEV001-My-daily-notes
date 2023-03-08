@@ -1,0 +1,18 @@
+
+#root{
+    display: flex;
+    flex-direction: column;
+    background-color: #FAF8F7;
+}
+
+#errorPage{
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    padding: 1em;
+    text-align: center;
+}
+
+#errorTitle{
+    width: fit-content;
+}

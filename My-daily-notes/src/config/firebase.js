@@ -7,12 +7,12 @@ import { getFirestore } from 'firebase/firestore'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: "AIzaSyAF5MujGJtkDAPZpz6QFAzj5HfhA-rVO2I",
+  authDomain: "my-daily-notes-f0e6e.firebaseapp.com",
+  projectId: "my-daily-notes-f0e6e",
+  storageBucket: "my-daily-notes-f0e6e.appspot.com",
+  messagingSenderId: "715204811538",
+  appId: "1:715204811538:web:b77be9079736419f4ab1cb"
 };
 
 // Initialize Firebase

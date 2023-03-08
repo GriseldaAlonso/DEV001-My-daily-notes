@@ -5,7 +5,7 @@ const Modal = ({ children, state, setState, title }) => {
     <>
       {state && (
         <div className="overlay">
-          <div className="modalContainer">
+          <div className="modalContainer" role={"dialog"}>
             {title !== '' ? <div className="modalHeader">
               <h3 className="titleModal">{title}</h3>
             </div> : <div className="hide"></div>}
