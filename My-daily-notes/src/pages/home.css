@@ -13,6 +13,7 @@ header{
     background-color: #473630;
     justify-content: space-between;
     width: 100%;
+    height: auto;
 }
 
 nav{
@@ -42,8 +43,13 @@ nav{
 
 /*Contenedor de form y sección de notas*/
 main{
+    height: 100%;
     width: 100%;
     background-color: #FAF8F7;
+}
+
+#notesContainer{
+    height: 100%;
 }
 
 #firstLevel{
@@ -313,6 +319,10 @@ pre .bodyNote{
 }
 
 @media only screen and (min-width: 417px) {
+    #firstLevel{
+        flex-direction: column;
+        place-items: center;
+    }
     #greeting{
         font-size: large;
         width: fit-content;
@@ -335,6 +345,7 @@ pre .bodyNote{
 @media only screen and (min-width: 600px) {
     #firstLevel{
         display: inline-flex;
+        flex-direction: unset;
         justify-content: space-between;
         align-items: center;
         height: fit-content;

@@ -16,14 +16,14 @@ body{
 main{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    place-items: center;
+    place-content: center;
     background-color: #FAF8F7;
 }
 
 .logo{
-    width: 350px;
-    height: 389px;
+    width: 219px;
+    height: 243px;
 }
 
 .googleIcon {
@@ -34,10 +34,12 @@ main{
 
 .welcome{
     font-weight: 500;
+    font-size: x-large;
 }
 
 .mainTitle{
     font-weight: bold;
+    font-size: xx-large;
 }
 .btnsContainer{
     display: flex;
