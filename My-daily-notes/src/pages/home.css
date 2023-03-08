@@ -33,6 +33,11 @@ nav{
     background-color: #473630;
     color: #fff;
     font-size: larger;
+    height: 100%;
+}
+
+#logOut:hover{
+    background-color: #893F45;
 }
 
 /*Contenedor de form y sección de notas*/
@@ -68,6 +73,9 @@ h1{
     align-items: center;
     width: 170px;
     height: 100%;
+}
+
+#labelBtn{
     font-size: 1.1em;
 }
 

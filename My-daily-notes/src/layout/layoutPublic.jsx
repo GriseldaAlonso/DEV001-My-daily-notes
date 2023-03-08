@@ -7,7 +7,7 @@ const LayoutPublic = () => {
       <header>
         <NavBar />
       </header>
-      <main>
+      <main role={'main'}>
         <Outlet />
       </main>
       <footer></footer>

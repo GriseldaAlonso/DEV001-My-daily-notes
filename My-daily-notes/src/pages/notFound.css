@@ -1,24 +1,18 @@
 
 #root{
     display: flex;
-    height: auto;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: #FAF8F7;
 }
 
-.errorPage{
+#errorPage{
     display: flex;
     height: auto;
     flex-direction: column;
     padding: 1em;
     text-align: center;
-    align-self: center;
-    justify-self: center;
 }
 
-.errorTitle{
+#errorTitle{
     width: fit-content;
-    margin: auto;
 }

@@ -1,15 +1,11 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useState, useEffect } from "react";
-import { useUserContext } from "../context/userContext";
 import { db } from "../config/firebase.js";
 import { DeleteNote } from "./deleteNote";
 import Modal from "./Modal";
 import { FormForNotes } from "./formForNotes";
 
-export default function ShowNotes({ nameUser }) {
-  /*----------  Variables de contexto ----------*/
-  const { User } = useUserContext();
-  const userUid = User.uid;
+export default function ShowNotes({ nameUser, userUid }) {
 
   /*----------  Variables de estado ----------*/
   const [list, setList] = useState([]);
@@ -37,9 +33,9 @@ export default function ShowNotes({ nameUser }) {
       <div id="firstLevel">
         <p id="greeting">Hello, {nameUser}</p>
         <div className="btnModalAdd">
-          <label htmlFor="btnAdd">Add new note</label>
+          <label id="labelBtn" htmlFor="btnAdd">Add new note</label>
           <button id="btnAdd" name="btnAdd" onClick={() => setModalAdd(!modalAdd)}>
-          <i class='bx bx-plus'></i>
+          <i className='bx bx-plus'></i>
           </button>
         </div>
         <Modal state={modalAdd} setState={setModalAdd} title="">
