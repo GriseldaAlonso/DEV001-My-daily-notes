@@ -7,6 +7,5 @@ jest.mock("../src/context/userContext")
 describe("ShowNotes", () => {
     it("Debería renderizar ShowNotes", () => {
         render(<ShowNotes />);
-        const ul = screen.getByRole("listitem")
     });
 });

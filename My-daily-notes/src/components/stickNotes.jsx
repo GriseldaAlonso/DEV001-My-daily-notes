@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { db } from "../config/firebase.js";
 import { DeleteNote } from "./deleteNote";
@@ -17,7 +17,8 @@ export default function ShowNotes({ nameUser, userUid }) {
   /*----------  Función para obtener las notas ----------*/
   const getNotes = async () => {
     const docs = [];
-    const querySnapshot = await getDocs(collection(db, `notesFrom${userUid}`));
+    const notesRef = collection(db, `notesFrom${userUid}`);
+    const querySnapshot = await getDocs(query(notesRef, orderBy("ts")));
     querySnapshot.forEach((doc) => {
       docs.push({ ...doc.data(), id: doc.id });
     });

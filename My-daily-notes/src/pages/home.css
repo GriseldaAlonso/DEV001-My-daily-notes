@@ -118,7 +118,7 @@ form{
 }
 
 label{
-    font-size: x-large;
+    font-size: large;
 }
 input{
     width: 90%;
@@ -128,7 +128,7 @@ input{
     border: 1px solid #473630;
     border-radius: 10px;
     text-align: center;
-    font-size: larger;
+    font-size: large;
     letter-spacing: 0.08em;
 }
 
@@ -138,7 +138,7 @@ textarea{
     border-radius: 10px;
     padding: 5px;
     text-align: center;
-    font-size: x-large;
+    font-size: larger;
     letter-spacing: 0.07em;
 }
 
