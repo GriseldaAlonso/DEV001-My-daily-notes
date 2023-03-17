@@ -22,7 +22,6 @@ export function FormForNotes({
     title: "",
     text: "",
     ts: "",
-    tag: ""
   };
 
   /*----------  Variable de estado ----------*/
@@ -31,7 +30,7 @@ export function FormForNotes({
   /*----------  Función que captura contenido del input y textArea ----------*/
   const dataCapture = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value, ts: currentDate, tag: "" });
+    setUser({ ...user, [name]: value, ts: currentDate});
   };
 
   /**
