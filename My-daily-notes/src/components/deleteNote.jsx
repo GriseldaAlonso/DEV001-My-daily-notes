@@ -3,7 +3,6 @@ import { db } from "../config/firebase.js";
 
 export function DeleteNote({ subId, userUid, setState, getNotes }) {
   const handleBtnDelete = async () => {
-    console.log(subId)
     await deleteDoc(doc(db, `notesFrom${userUid}`, subId));
     getNotes();
     setState(false);

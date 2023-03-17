@@ -35,6 +35,7 @@ nav{
     color: #fff;
     font-size: larger;
     height: 100%;
+    border-radius: 0px;
 }
 
 #logOut:hover{
@@ -99,7 +100,16 @@ h1{
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
+.btnNote:hover,
 #btnAdd:hover {
+    background-color: #893F45;
+    border: none;
+}
+.btnNote:focus-visible,
+#btnAdd:focus-visible,
+.btnNote:focus-visible,
+.btnCancel:focus-visible,
+.btnAction:focus-within {
     background-color: #893F45;
     border: none;
 }
@@ -148,6 +158,7 @@ ul{
     flex-wrap: wrap;
     padding: 0;
     justify-content: center;
+    height: auto;
 }
 
 li{
@@ -190,9 +201,16 @@ pre .bodyNote{
     align-items: center;
 }
 
+.btns-list{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .btnNote{
-    background-color: #FAF8F7;
-    color: #473630;
+    background-color: #473630;
+    color: #fff;
     font-weight: 500;
     font-size: large;
     border: 2px solid #473630;
@@ -207,7 +225,6 @@ pre .bodyNote{
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
-.btnNote:hover,
 .btnCancel:hover{
     background-color: #473630;
     color: #fff;
@@ -311,11 +328,6 @@ pre .bodyNote{
 
 .btnClose:hover{
     background-color: #A8A1A0;
-}
-
-.hide{
-    display: none;
-    border: none;
 }
 
 @media only screen and (min-width: 417px) {
