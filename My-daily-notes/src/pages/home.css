@@ -154,11 +154,11 @@ textarea{
 
 /*Estilos para sección de notas*/
 ul{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    justify-content: center;
-    height: auto;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-auto-rows: fit-content;
+	grid-auto-flow: dense;
 }
 
 li{
@@ -169,7 +169,7 @@ li{
     padding: 1em;
     margin: 10px;
     width: 250px;
-    height: auto;
+    height: fit-content;
     border-radius: 20px;
     justify-content: center;
     place-content: space-between;
@@ -364,6 +364,9 @@ pre .bodyNote{
     }
     form{
         width: 400px;
+    }
+    li{
+        height: auto;
     }
     /* Estilos para modal */
     .modalContainer{
